@@ -72,7 +72,7 @@ instructions."))
 		 ))
 
 #+asdf-system-connections
-(defsystem-connection "metatilities/with-lift"
+(asdf:defsystem-connection "metatilities/with-lift"
   :requires ("lift" "metatilities-base")
   :perform (load-op (o c)
              (use-package (find-package :lift) (find-package :metatilities))
