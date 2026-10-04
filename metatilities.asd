@@ -50,7 +50,8 @@ instructions."))
 				 #+DIGITOOL "mcl"
 				 #+SBCL     "sbcl"
 				 #+allegro  "allegro"
-				 #-(or OpenMCL DIGITOOL SBCL allegro)
+				 #+dotcl    "dotcl"
+				 #-(or OpenMCL DIGITOOL SBCL allegro dotcl)
 				 "unsupported")
 			     "/")
 		:components ((:file "generic-lisp")
