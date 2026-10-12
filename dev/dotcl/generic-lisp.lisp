@@ -29,10 +29,9 @@
 ;;; ---------------------------------------------------------------------------
 
 (defmethod gc-time* ((interface (eql :dotcl)))
-  ;; Total time the .NET GC has paused the program, in internal time units.
-  (values (round (* (dotnet:invoke (dotnet:static "System.GC" "GetTotalPauseDuration")
-                                   "TotalSeconds")
-                    internal-time-units-per-second))))
+  ;; Total time the GC has paused the program, in internal time units: the
+  ;; sixth element of DOTCL:GC-STATS (NIL where the runtime cannot tell).
+  (or (nth 5 (dotcl:gc-stats)) 0))
 
 ;;; ---------------------------------------------------------------------------
 
